@@ -68,12 +68,13 @@ public class cashew{
 			}
 
 		} else if (choice == 2) {
-			playerHP = playerHP - 1;
+			playerHP = playerHP - 10;
 			System.out.println(
-					"You decide to jump in through the window.\n\n Glass shatters and cuts your skin, you regret the desicion. You smell bananas  .\n(You receive 1 damage)\n");
+					"You decide to jump in through the window.\n\n Glass shatters and cuts your skin to ribbons, you recive fatal damage!  .\n(You receive 10 damage)\n");
 			System.out.println("Your HP: " + playerHP);
+
 			enterScanner.nextLine();
-			house();
+			glass();
 		} else if (choice == 3) {
 			leave();
 		} else {
@@ -98,8 +99,8 @@ public class cashew{
 			Kit();
 		} else if (choice == 3) {
 			bed();
-		//} else if (choice == 4) {
-			//base();
+		} else if (choice == 4) {
+			base();
 		} else {
 			inside();
 		}
@@ -146,7 +147,6 @@ public class cashew{
     public void light() {
         System.out.println("\n------------------------------------------------------------------\n");
         System.out.println("You find a light switch and turn it on, revealing a gorilla eating from a tall pile of bananas");
-        //System.out.println("Monster HP: " + monsterHP);
         System.out.println("\n1: Take a banana");
         System.out.println("2: Go back");
         System.out.println("\n------------------------------------------------------------------\n");
@@ -225,12 +225,24 @@ public class cashew{
 		}
 
 	}
+	public void win(){
+		System.out.println("\n------------------------------------------------------------------\n");
+        System.out.println("You defeat the gorilla");
+		System.out.println("The gorilla drops the elusive crystal mango");
+        System.out.println("\n1: Take the mango");
+        System.out.println("2: Go back");
+        System.out.println("\n------------------------------------------------------------------\n");
 
-	
 
-	
+        choice = myScanner.nextInt();
 
-	
+
+        if (choice == 1) {
+            mango();
+        } else if (choice == 2) {
+            proper();
+		}
+    }
 
 	public void dead() {
 		System.out.println("\n------------------------------------------------------------------\n");
@@ -240,22 +252,16 @@ public class cashew{
 
 	}
 
-	public void win() {
+	public void mango() {
 		System.out.println("\n------------------------------------------------------------------\n");
-		System.out.println("test");
-		System.out.println("test");
-		System.out.println("test");
-		System.out.println("test");
+		System.out.println("You found the legendary crystal mango, as you celebrate the house begins to crumble around you");
+		System.out.println("As you make it to the door and go outside, you notice that everything is in complete dissaray and anarchy");
+		System.out.println("all of a sudden the earth splits and swallows you whole, you fall and crash into earth's molten core");
+		System.out.println("\n              YOU DIED                  ");
+		System.out.println("\n              What did you do? (ending)                  ");
 		System.out.println("\n------------------------------------------------------------------\n");
 
-		win = 1;
-
-		choice = myScanner.nextInt();
-		if (choice == 1) {
-			inside();
-		} else {
-			win();
-		}
+		
 
 	}
 
@@ -279,8 +285,30 @@ public class cashew{
 		System.out.println("You reached for a banana and took a bite from it, peel and all.");
 		System.out.println("As you reach for another one, a gorilla appears and beats you to death with a mango");
 		System.out.println("\n\n           YOU DIED, albeit sweetly                  ");
+		System.out.println("\n             Dark basement ending                        ");
 		System.out.println("\n------------------------------------------------------------------\n");
     }
+	 public void glass(){
+        System.out.println("\n------------------------------------------------------------------\n");
+		System.out.println("You bleed out on the floor");
+		System.out.println("A gorilla emerges from the basement and beats you with an unripe banana");
+		System.out.println("\n             YOU DIED                        ");
+		System.out.println("\n\n           Break-in Ending               ");
+		System.out.println("\n------------------------------------------------------------------\n");
+    }
+	public void proper() {
+		System.out.println("\n------------------------------------------------------------------\n");
+		System.out.println("You leave the crystal mango behind");
+		System.out.println("As you make it to the door and go outside, you turn around and notice that the house isnt the same");
+		System.out.println("it is a marvelous mansion all lined with the finest of furniture and leisures");
+		System.out.println("You turn on the 8k 100 inch tv to the news and find that world peace has been achived ");
+		System.out.println("\n              YOU WIN                  ");
+		System.out.println("\n              What happened? (true ending)                  ");
+		System.out.println("\n------------------------------------------------------------------\n");
+
+		
+
+	}
 }
     
 
