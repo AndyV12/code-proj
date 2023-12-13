@@ -13,6 +13,7 @@ public class cashew{
 	String playerName;
     String playerWeapon;
 	int choice;
+	int monsterHP;
 
 	int win;
     
@@ -44,7 +45,7 @@ public class cashew{
 
 	public void house() {
 
-		System.out.println("\n------------------------------------------------------------------\n");// i dont remember the fancy thing you did with
+		System.out.println("\n------------------------------------------------------------------\n");// i dont remember the fancy thing you did with asterisk
 		System.out.println("You arrived at the house");
 		System.out.println("You exit your car and walk to the door, keys in hand");
 		System.out.println("");
@@ -103,6 +104,64 @@ public class cashew{
 			inside();
 		}
 	}
+	public void base() {
+        System.out.println("\n------------------------------------------------------------------\n");
+        System.out.println("You walk down the dark steps of the basement, you cant see anything\n");
+        System.out.println("1: search for a light switch");
+        System.out.println("2: Walk in without a care ");
+        System.out.println("\n------------------------------------------------------------------\n");
+
+
+        choice = myScanner.nextInt();
+
+
+        if (choice == 1) {
+            light();
+        } else if (choice == 2) {
+            careless();
+        } else {
+            inside();
+        }
+    }
+
+    public void careless(){
+		System.out.println("\n------------------------------------------------------------------\n");
+        System.out.println("You stumble into the basement and run into a pile of bananas, you hear heavy breathing");
+        System.out.println("\n1: Take a banana");
+        System.out.println("2: Go back and look for a light");
+        System.out.println("\n------------------------------------------------------------------\n");
+
+
+        choice = myScanner.nextInt();
+
+
+        if (choice == 1) {
+            pain();
+        } else if (choice == 2) {
+            light();
+		}
+    }
+
+	
+    public void light() {
+        System.out.println("\n------------------------------------------------------------------\n");
+        System.out.println("You find a light switch and turn it on, revealing a gorilla eating from a tall pile of bananas");
+        //System.out.println("Monster HP: " + monsterHP);
+        System.out.println("\n1: Take a banana");
+        System.out.println("2: Go back");
+        System.out.println("\n------------------------------------------------------------------\n");
+
+
+        choice = myScanner.nextInt();
+
+
+        if (choice == 1) {
+            attack();
+        } else if (choice == 2) {
+            inside();
+		}
+    }
+
 
 	public void Kit() {
 		System.out.println("\n------------------------------------------------------------------\n");
@@ -135,6 +194,36 @@ public class cashew{
 		} else {
 			bed();
 		}
+	}
+	public void attack() {
+		int playerDamage = 3;
+
+		System.out.println("You attacked the gorilla for" + playerDamage + " damage!");
+
+		monsterHP = monsterHP - playerDamage;
+
+		System.out.println("Gorilla HP: " + monsterHP);
+
+		if (monsterHP < 1) {
+			win();
+		} else if (monsterHP > 0) {
+			int monsterDamage = 0;
+
+			monsterDamage = new java.util.Random().nextInt(2);
+
+			System.out.println("The gorilla mauled you and gave " + monsterDamage + " damage!");
+
+			playerHP = playerHP - monsterDamage;
+
+			System.out.println("Player HP: " + playerHP);
+
+			if (playerHP < 1) {
+				dead();
+			} else if (playerHP > 0) {
+				win();
+			}
+		}
+
 	}
 
 	
@@ -174,7 +263,7 @@ public class cashew{
         System.out.println("\n------------------------------------------------------------------\n");
 		System.out.println("You decided to turn back and leave");
 		System.out.println("You turn back to get one last look at the house, and it is no longer there...");
-		System.out.println("\n\n           THE END                    ");
+		System.out.println("\n\n           Paranormal ending                    ");
 		System.out.println("\n------------------------------------------------------------------\n");
     }
 
@@ -185,6 +274,13 @@ public class cashew{
 		System.out.println("\n\n           THE END                    ");
 		System.out.println("\n------------------------------------------------------------------\n");
 	}
+	 public void pain(){
+        System.out.println("\n------------------------------------------------------------------\n");
+		System.out.println("You reached for a banana and took a bite from it, peel and all.");
+		System.out.println("As you reach for another one, a gorilla appears and beats you to death with a mango");
+		System.out.println("\n\n           YOU DIED, albeit sweetly                  ");
+		System.out.println("\n------------------------------------------------------------------\n");
+    }
 }
     
 
